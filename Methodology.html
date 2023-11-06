@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Methodology - AgroBuddy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/Agro Buddy/Agro buddy logo.png" rel="icon">
+  <link href="asssets/img/Agro Buddy/Agro buddy logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/Agro Buddy/Agro buddy logo.png" alt="AgroBuddy">
+        <span>AgroBuddy</span>
+      </a>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Domain</a></li>
+          <li>Methodology</li>
+        </ol>
+        <h2>Methodology</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <img src="./assets/img/Methodology.png">
+        <p>
+          <br>
+          <br>
+          Users upload images of diseased crops, which are then processed by a pre-trained
+          Convolutional Neural Network (CNN) model to propose potential diseases. From the top three suggested diseases,
+          users choose one for closer examination. A Chabot engages users in symptom verification, posing targeted
+          questions to refine the disease identification. Subsequently, a sequential model leverages user responses to
+          further confirm the disease's accuracy. Users have the option to assess disease severity by submitting
+          additional images, analyzed by a separate CNN model that returns a severity percentage. Upon accurate
+          identification and severity assessment, the app recommends tailored traditional remedies, drawing on a machine
+          learning model informed by regional and historical effectiveness data. The user interface presents confirmed
+          diseases, severity information, and recommended remedies, fostering informed decision-making. Users can
+          provide feedback for ongoing enhancement, while regular model updates refine disease identification and remedy
+          suggestions based on real-world interactions and agricultural insights.<br>
+          The Python programming language was used to develop the back-end server. And develop Machine Learning Models
+          to accomplish this task. APIs used to end to end communication processes. Flutter framework used to develop
+          mobile application.
+          <br>
+          <br>
+          <b>1. Crop Disease Detection using Images</b><br>
+          A comprehensive methodology for automated plant disease identification using Convolutional Neural Networks
+          (CNNs) are employed as the primary algorithm, with a single model trained for plant identification and
+          separate models for disease detection in different plants. Specific datasets are curated for each plant
+          category, consisting of labeled images and corresponding disease annotations. The images undergo
+          preprocessing, including resizing to a standardized resolution of 150x150 pixels using the Python Imaging
+          Library (PIL), ensuring uniformity in input dimensions. For plant identification, the model is loaded from the
+          file in the directory using the Keras library. The loaded model predicts the plant species by passing the
+          preprocessed image through the model, extracting class probabilities. The highest probability class index is
+          mapped to the corresponding label, which is then outputted. <br>
+          Disease identification models and class labels are loaded based on the respective plant category. Images are
+          opened, resized, normalized, and processed using the loaded models. The 'predict' function generates a
+          probability distribution over the disease classes, and one other function determines the index of the class
+          with the highest probability. This index is utilized to retrieve the corresponding disease class label, which
+          is subsequently outputted. The integration of plant identification and disease detection functionalities
+          enables accurate plant classification and disease identification. This methodology holds substantial potential
+          for effective plant monitoring and management, facilitating early disease detection and informing appropriate
+          agricultural practices to mitigate the impact of plant diseases on crop yield and quality.
+          <br>
+          <br>
+          <b>2. Disease Verification using ML</b><br>
+          The primary dataset is sourced from a JSON file containing disease observation data, encompassing disease
+          names and their corresponding sequences of observations. After data collection, a preprocessing stage is
+          conducted, generating diverse permutations of observation sequences to capture various behavior combinations,
+          guided by the option to enable sequence learning. Model configuration entails defining critical parameters
+          like vocabulary size, embedding dimensions, and maximum sequence length, along with factors such as an
+          out-of-vocabulary token and the number of training epochs. The dataset is divided into training and testing
+          subsets, with labels transformed into numerical representations using label encoders for consistent
+          interpretation by the model. Textual data is transformed into a numeric format through tokenization, followed
+          by the creation of padded sequences to ensure uniformity in length. The model architecture involves an
+          embedding layer converting words into dense vectors, followed by global average pooling and dense layers with
+          ReLU activation for pattern recognition. An output layer using softmax activation predicts disease categories.
+          Training is executed on the training dataset, while evaluation occurs on a separate test dataset to measure
+          loss and accuracy. The training process is visually represented through line plots illustrating training loss
+          and accuracy, enhanced by moving averages. This structured methodology guides the systematic development of
+          the disease tracing ML model, covering data processing, model configuration, training, evaluation, and
+          visualization, ensuring the model's proficiency in predicting disease categories based on observation
+          sequences.
+          <br>
+          <br>
+          <b>3. Severitiy Level detection of identified crop disease</b><br>
+          In this study, methodology for classifying plant diseases into severity levels using Convolutional Neural
+          Networks (CNNs). This methodology circumscribes with testing and training as main procedures of this research
+          component. In the earlier steps after identifying plant and disease according to previous components, severity
+          will categorize into three distinct level such as 10%, 50% and over 90% damage. CNNs are especially
+          well-suited for tasks that involve extracting spatial patterns and features from images. CNN models exhibited
+          a remarkable ability to accurately predict and differentiate the extent of crops deterioration. Image
+          pre-processing, encompassing normalization and resizing techniques are comparatively used to made up the
+          diverse dataset for predict severity level of diseased crops. Although our field-based survey and expertise
+          advices and findings are also enormously valuable when processing the dataset. In the pre-processed dataset it
+          comprises images for each plant type and severity level for enhance the effectiveness for model training and
+          evaluation stages.
+          <br>
+          <br>
+          <b>4. Traditional Remedies suggestion for diseased crops</b><br>
+          This section outlines the systematic methodology employed to develop and validate the Traditional Remedies
+          Suggestion System for Diseased Crops
+          The primary foundation of this research involved a comprehensive data collection process. In-depth
+          consultations were conducted with seasoned agriculture experts and local farmers. Through these interactions,
+          valuable insights were acquired regarding traditional remedies that have stood the test of time in addressing
+          diverse crop diseases. We then organized the gathered information carefully. We put things into categories
+          like where the farms are, what types of plants are grown, what diseases affect the crops, and how severe the
+          problems are. This organization streamlined data storage and established a framework for subsequent analysis.
+          To ensure the universal applicability of the chosen grading system, we checked them against information from
+          various geographical regions. This was important to make sure our system would accommodate well for different
+          types of farming landscapes.<br>
+          The heart of our research was the creation of a strong neural network model. By utilizing the Keras library,
+          we meticulously designed the architecture of this model, using multiple layers, each with unique functions
+          like ReLU and Softmax activation functions. This model was tailored to accurately predict the effectiveness of
+          different remedies based on the input factors provided. The neural network model underwent intensive training,
+          a critical phase of its development. This training process involved using a carefully prepared dataset and
+          optimizing the model's performance through techniques like the Adam optimizer and sparse categorical
+          cross-entropy loss function. The model was fine-tuned to achieve the best possible predictive performance.
+          We evaluated the model's effectiveness through rigorous testing using an independent dataset. Metrics such as
+          accuracy and other relevant indicators were used to measure the model's ability to provide precise suggestions
+          for traditional remedies across a wide range of diverse crop disease scenarios. The effectiveness of our
+          Traditional Remedies Suggestion System was thoroughly assessed by analyzing its accuracy and other relevant
+          evaluation metrics. This assessment offered a comprehensive understanding of the system's capability to
+          provide practical and relevant traditional remedy recommendations tailored to different crop disease
+          situations.<br>
+          In conclusion, our research methodology underscores the main goal of the Traditional Remedies Suggestion
+          System: to equip farmers with effective and practical traditional remedy suggestions. Through this system, we
+          aim to empower farmers to adapt their agricultural practices to effectively address the dynamic challenges
+          posed by various crop diseases.
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!--  JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
